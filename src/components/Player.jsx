@@ -163,7 +163,7 @@ const Player = ({ currentAudio, skipAudioFunction }) => {
         />
         <FontAwesomeIcon onClick={downloadAudio} icon={faDownload} />
         <a
-          href={`intent:/whatsapp//#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=hadouken;scheme=whatsapp;S.browser_fallback_url=https://web.whatsapp.com/send?text=hadouken;end;`}
+          href={`https://wa.me/?text=${encodeURI(currentAudio.transcript) + "%0A%0A%0A" + encodeURI(currentAudio.audio)}`}
           target="_blank"
           rel="noopener noreferrer"
         >
