@@ -13,7 +13,11 @@
     padding: 3rem 1rem 1rem 1rem;
   }
   h3 {
+    width: 40%;
+    height: 12vh;
     font-size: 1rem;
+    text-align: center;
+    overflow: scroll;
   }
 }
 
@@ -21,6 +25,10 @@
   .audio-container {
     img {
       width: 60%;
+    }
+    h3 {
+      width: 90%;
+      height: 20vh;
     }
   }
 }

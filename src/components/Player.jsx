@@ -130,20 +130,6 @@ const Player = ({ currentAudio, skipAudioFunction }) => {
 
       <div className="play-control">
         <FontAwesomeIcon
-          onClick={() => setShowVolume(!showVolume)}
-          icon={faVolumeDown}
-        />
-        {showVolume && (
-          <input
-            onChange={changeVolume}
-            value={audioInfo.volume}
-            max="1"
-            min="0"
-            step="0.01"
-            type="range"
-          />
-        )}
-        <FontAwesomeIcon
           className="skip-back"
           onClick={() => skipAudioHandler("skip-back")}
           size="2x"
@@ -161,14 +147,22 @@ const Player = ({ currentAudio, skipAudioFunction }) => {
           size="2x"
           icon={faAngleRight}
         />
+        <FontAwesomeIcon
+          onClick={() => setShowVolume(!showVolume)}
+          icon={faVolumeDown}
+        />
+        {showVolume && (
+          <input
+            onChange={changeVolume}
+            value={audioInfo.volume}
+            max="1"
+            min="0"
+            step="0.01"
+            type="range"
+          />
+        )}
         <FontAwesomeIcon onClick={downloadAudio} icon={faDownload} />
-        <a
-          href={`https://wa.me/?text=${encodeURI(currentAudio.transcript) + "%0A%0A%0A" + encodeURI(currentAudio.audio)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={faShareAlt}/>
-        </a>
+        <FontAwesomeIcon icon={faShareAlt} onClick={() => window.open(`https://wa.me/?text=${encodeURI(currentAudio.transcript) + "%0A%0A%0A" + encodeURI(currentAudio.audio)}`, "_blank")}/>
 
       </div>
 
